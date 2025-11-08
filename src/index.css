@@ -197,7 +197,18 @@ body {
     left: -90px;
     bottom: -40px;
   }
+  #b-right-tomato{
+    width: 45% ;
+    bottom: 0;
+    top: auto;
+  }
+   #b-left-tomato{
+    width: 45% ;
+    bottom: 0;
+    top: auto;
+  }
 }
+
 .katcheb_img_right {
   right: -70px;
 }

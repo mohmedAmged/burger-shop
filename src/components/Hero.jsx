@@ -49,12 +49,12 @@ const Hero = () => {
 					scrub: true,
 				},
 			})
-			.to(".right-leaf", { y: 200 }, 0)
-			.to(".left-leaf", { y: -200 }, 0)
+			.to(".right-katchep", { y: 200 }, 0)
+			.to(".left-katchep", { y: -200 }, 0)
 			.to(".arrow", { y: 100 }, 0);
 
 		const startValue = isMobile ? "top 50%" : "center 60%";
-		const endValue = isMobile ? "142% top" : "bottom top";
+		const endValue = isMobile ? "116% top" : "bottom top";
 
 		let tl = gsap.timeline({
 		 scrollTrigger: {
