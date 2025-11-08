@@ -69,7 +69,7 @@ const Hero = () => {
 
 		videoRef.current.onloadedmetadata = () => {
 		 tl.to(videoRef.current, {
-			currentTime: videoRef.current.duration,
+			currentTime: videoRef.current.duration - 0.05,
 			duration: 3,
 			ease: "none",
 		 });
