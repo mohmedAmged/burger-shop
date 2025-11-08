@@ -120,7 +120,7 @@ const Hero = () => {
                     disablePictureInPicture
                     webkit-playsinline="true"
                     x5-playsinline="true"
-					src="/videos/output_mobile.mp4"
+					src="/videos/output7.mp4"
 				/>
 				{/* <div className="overlay absolute inset-0 bg-black/50" /> */}
 			</div>
