@@ -117,6 +117,9 @@ const Hero = () => {
 					muted
 					playsInline
 					preload="auto"
+                    disablePictureInPicture
+                    webkit-playsinline="true"
+                    x5-playsinline="true"
 					src="/videos/output7.mp4"
 				/>
 				{/* <div className="overlay absolute inset-0 bg-black/50" /> */}
