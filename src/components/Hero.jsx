@@ -55,7 +55,7 @@ const Hero = () => {
 
 		const startValue = isMobile ? "top 50%" : "center 60%";
 		const endValue = isMobile ? "116% top" : "bottom top";
-
+		
 		let tl = gsap.timeline({
 		 scrollTrigger: {
 			trigger: "video",
@@ -68,10 +68,13 @@ const Hero = () => {
 
 
 		videoRef.current.onloadedmetadata = () => {
-		 tl.to(videoRef.current, {
-			currentTime: videoRef.current.duration - 0.05,
-			duration: 3,
-			ease: "none",
+		 videoRef.current.play().then(() => {
+			videoRef.current.pause();
+			tl.to(videoRef.current, {
+				currentTime: videoRef.current.duration - 0.05,
+				duration: 3,
+				ease: "none",
+			});
 		 });
 		};
 	}, []);
@@ -117,11 +120,11 @@ const Hero = () => {
 
       {/* ✅ Video wrapper that gets pinned */}
         <div className="video absolute inset-0">
+
 				<video
 					ref={videoRef}
 					muted
 					playsInline
-                    autoPlay={isMobile? true: false}
 					preload="auto"
 					src="/videos/output7.mp4"
 				/>
