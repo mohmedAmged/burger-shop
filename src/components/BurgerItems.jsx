@@ -25,12 +25,12 @@ export default function BurgerItems() {
 		<section id="burgers" className="noisy">
 			<img
 				src="/images/freshHero.png"
-				className='w-80 scale-x-[-1] lg:block opacity-[.8]'
+				className='w-80 hidden scale-x-[-1] lg:block opacity-[.8]'
 				alt="l-tomato"
 				id="b-left-tomato" />
 			<img
 				src="/images/freshHero.png"
-				className='w-80 lg:block opacity-[.8]'
+				className='w-80 hidden lg:block opacity-[.8]'
 				alt="r-tomato"
 				id="b-right-tomato" />
 

@@ -87,12 +87,12 @@ const Hero = () => {
         <img
           src="/images/katchep2.png"
           alt="left-katchep"
-          className="left-katchep katcheb_img_left lg:block opacity-[.8] w-50 md:w-80"
+          className="left-katchep katcheb_img_left hidden lg:block opacity-[.8] w-50 md:w-80"
         />
         <img
           src="/images/katchep2.png"
           alt="right-katchep"
-          className="right-katchep katcheb_img_right w-50 md:w-80 lg:block opacity-[.8]"
+          className="right-katchep katcheb_img_right hidden w-50 md:w-80 lg:block opacity-[.8]"
         />
 
         <div className="body">

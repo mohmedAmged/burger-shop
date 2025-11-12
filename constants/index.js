@@ -70,9 +70,23 @@ const burgerSpecials = [
         price: "$15",
     },
 ];
+const featureLists = [
+  "Flame-grilled to perfection",
+  "Juicy layers of premium beef",
+  "Crisp lettuce and fresh veggies",
+  "Melted cheese that seals the flavor",
+];
 
+const goodLists = [
+  "Handcrafted with passion",
+  "Fresh ingredients sourced daily",
+  "Signature sauces made in-house",
+  "Cooked over real fire for authentic taste",
+];
 export {
     navLinks,
     burgerPopular,
     burgerSpecials,
+    featureLists,
+    goodLists
 };

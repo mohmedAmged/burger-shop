@@ -5,6 +5,7 @@ import Navbar from './components/Navbar'
 import Hero from './components/Hero'
 import BurgerItems from './components/BurgerItems'
 import About from './components/About'
+import ArtBurger from './components/ArtBurger'
 
 gsap.registerPlugin(ScrollTrigger, SplitText)
 
@@ -16,6 +17,7 @@ function App() {
       <Hero />
       <BurgerItems />
       <About />
+      <ArtBurger />
     </main>
   )
 }
