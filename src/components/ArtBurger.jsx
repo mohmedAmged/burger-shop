@@ -27,7 +27,7 @@ const ArtBurger = () => {
  
  return (
 	<div id="art">
-	 <div className="container mx-auto h-full pt-20">
+	 <div className="container mx-auto h-full pt-0 md:pt-15">
 		<h2 className="will-fade">Burger</h2>
 		
 		<div className="content">
@@ -60,7 +60,7 @@ const ArtBurger = () => {
 		
 		<div className="masked-container">
 		 <h2 className="will-fade">Masterful Creation</h2>
-		 <div id="masked-content">
+		 <div className='maskedCon' id="masked-content">
 			<h3>Watch the Magic Unfold</h3>
 			<p>From fresh ingredients to flame-grilled perfection, every burger is a masterpiece.</p>
 		 </div>

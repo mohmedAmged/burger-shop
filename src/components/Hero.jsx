@@ -128,6 +128,9 @@ const Hero = () => {
 					preload="auto"
 					src="/videos/output3.mp4"
 				/>
+				
+				
+
 	    </div>
     </>
   );
