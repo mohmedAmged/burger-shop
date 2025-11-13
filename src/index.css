@@ -140,8 +140,9 @@ body {
   }
 
   video {
-    @apply w-full md:h-[80%] h-1/2 absolute bottom-0 left-0 md:object-contain object-bottom object-cover;
+    @apply w-full md:h-[80%] h-1/2 absolute bottom-0 left-0 md:object-contain object-bottom object-cover ;
   }
+
 
   #burgers {
     @apply relative min-h-dvh w-full overflow-hidden;
@@ -191,159 +192,159 @@ body {
     }
   }
   #about {
-        @apply min-h-screen py-28 2xl:px-0 px-5 container mx-auto;
+    @apply min-h-screen py-28 2xl:px-0 px-5 container mx-auto;
 
-        .content {
-            @apply grid grid-cols-1 lg:grid-cols-12 gap-5;
+    .content {
+      @apply grid grid-cols-1 lg:grid-cols-12 gap-5;
 
-            h2 {
-                @apply text-5xl md:text-6xl font-modern-negra max-w-lg;
-            }
+      h2 {
+        @apply text-5xl md:text-6xl font-modern-negra max-w-lg;
+      }
 
-            .sub-content {
-                @apply md:col-span-4 space-y-5 flex flex-col justify-between;
+      .sub-content {
+        @apply md:col-span-4 space-y-5 flex flex-col justify-between;
 
-                p {
-                    @apply text-lg;
-                }
-
-                div {
-                    @apply flex flex-col justify-between md:gap-2 gap-5;
-
-                    span {
-                        @apply text-yellow font-bold text-5xl;
-                    }
-                }
-            }
+        p {
+          @apply text-lg;
         }
 
-        .badge {
-            @apply inline-block rounded-full bg-white text-black px-4 py-2 text-sm font-medium mb-8;
-        }
+        div {
+          @apply flex flex-col justify-between md:gap-2 gap-5;
 
-        .top-grid {
-            @apply grid grid-cols-1 xl:grid-cols-12 gap-5 mb-5 md:px-0 px-5;
-
-            > div {
-                @apply rounded-3xl overflow-hidden h-72 relative;
-            }
-
-            img {
-                @apply object-cover w-full h-full;
-            }
-        }
-
-        .bottom-grid {
-            @apply grid grid-cols-1 md:grid-cols-12 gap-5 md:px-0 px-5;
-
-            > div {
-                @apply rounded-3xl overflow-hidden h-72 relative;
-            }
-
-            img {
-                @apply object-cover w-full h-full;
-            }
-        }
-  }
-  #art {
-        @apply flex-center flex-col min-h-dvh p-5 mt-20 relative radial-gradient;
-
-        h2 {
-            @apply relative text-[30vw] md:text-[20vw] text-8xl text-nowrap leading-none font-modern-negra text-center text-[#505050] mb-8;
-        }
-
-        .content {
-            @apply flex md:flex-row flex-col justify-between md:mb-16  mt-35 md:mt-0 gap-10;
-        }
-
-        .burger-img {
-            @apply md:w-[60vw] w-full h-[50vh] md:h-[65vh] rounded-4xl overflow-hidden absolute -top-12 md:top-1/2 md:-translate-y-1/2 left-1/2 -translate-x-1/2;
-        }
-
-        .masked-container {
-            h2 {
-                @apply text-4xl md:text-5xl font-modern-negra text-center mb-10 text-white mt-10 md:mt-32;
-            }
-
-            div {
-                @apply opacity-0 md:px-0 px-5 space-y-5 absolute bottom-90 md:bottom-10 left-1/2 -translate-x-1/2;
-
-                h3 {
-                    @apply md:text-5xl text-2xl text-center font-modern-negra md:w-full w-80 text-white;
-                }
-
-                p {
-                    @apply text-lg text-center;
-                }
-            }
-        }
-  }
-  #menu {
-        @apply relative w-full md:mt-40 mt-0 2xl:px-0 px-5 py-20 radial-gradient overflow-hidden;
-
-        .category-tabs {
-          @apply flex justify-center flex-wrap gap-8 mb-16 md:mb-24;
-          
-          button {
-            @apply cursor-pointer transition-colors border-b-2 pb-2 font-modern-negra;
+          span {
+            @apply text-yellow font-bold text-5xl;
           }
         }
+      }
+    }
 
-        .burger-tabs {
-            @apply grid md:grid-cols-3 grid-cols-2 md:gap-20 gap-10 sm:mb-32 mb-20 relative z-10 md:max-w-6xl md:mx-auto;
+    .badge {
+      @apply inline-block rounded-full bg-white text-black px-4 py-2 text-sm font-medium mb-8;
+    }
 
-            button {
-                @apply md:text-3xl text-xl pb-2 cursor-pointer hover:text-yellow hover:border-yellow border-b-1 transition-colors font-modern-negra;
-            }
+    .top-grid {
+      @apply grid grid-cols-1 xl:grid-cols-12 gap-5 mb-5 md:px-0 px-5;
+
+      > div {
+        @apply rounded-3xl overflow-hidden h-72 relative;
+      }
+
+      img {
+        @apply object-cover w-full h-full;
+      }
+    }
+
+    .bottom-grid {
+      @apply grid grid-cols-1 md:grid-cols-12 gap-5 md:px-0 px-5;
+
+      > div {
+        @apply rounded-3xl overflow-hidden h-72 relative;
+      }
+
+      img {
+        @apply object-cover w-full h-full;
+      }
+    }
+  }
+  #art {
+    @apply flex-center flex-col h-auto p-5 mt-20 relative radial-gradient;
+
+    h2 {
+      @apply relative text-[30vw] md:text-[20vw] text-8xl text-nowrap leading-none font-modern-negra text-center text-[#505050] mb-8 -top-[18px] md:top-0;
+    }
+
+    .content {
+      @apply flex md:flex-row flex-col justify-between md:mb-16  mt-30 md:mt-0 gap-10;
+    }
+
+    .burger-img {
+      @apply md:w-[60vw] w-full h-[50vh] md:h-[65vh] rounded-4xl overflow-hidden absolute -top-19 md:top-1/2 md:-translate-y-1/2 left-1/2 -translate-x-1/2;
+    }
+
+    .masked-container {
+      h2 {
+        @apply text-4xl md:text-5xl font-modern-negra text-center mb-10 text-white mt-10 md:mt-32;
+      }
+
+      div {
+        @apply opacity-0 md:px-0 px-5 space-y-5 absolute bottom-40 md:bottom-10 left-1/2 -translate-x-1/2;
+
+        h3 {
+          @apply md:text-5xl text-2xl text-center font-modern-negra md:w-full w-80 text-white;
         }
 
-        .content {
-            @apply flex flex-col justify-between items-center container mx-auto relative;
+        p {
+          @apply text-lg text-center;
+        }
+      }
+    }
+  }
+  #menu {
+    @apply relative w-full md:mt-40 mt-0 2xl:px-0 px-5 py-20 radial-gradient overflow-hidden;
 
-            .arrows {
-                @apply flex items-center justify-between w-full absolute;
+    .category-tabs {
+      @apply flex justify-center flex-wrap gap-8 mb-16 md:mb-24;
 
-                button {
-                    @apply text-white hover:text-yellow cursor-pointer transition-colors max-w-36;
+      button {
+        @apply cursor-pointer transition-colors border-b-2 pb-2 font-modern-negra;
+      }
+    }
 
-                    span {
-                        @apply md:text-xl text-[9px] font-modern-negra leading-none md:block;
-                    }
-                }
-            }
+    .burger-tabs {
+      @apply grid md:grid-cols-3 grid-cols-2 md:gap-20 gap-10 sm:mb-32 mb-20 relative z-10 md:max-w-6xl md:mx-auto;
+
+      button {
+        @apply md:text-3xl text-xl pb-2 cursor-pointer hover:text-yellow hover:border-yellow border-b-1 transition-colors font-modern-negra;
+      }
+    }
+
+    .content {
+      @apply flex flex-col justify-between items-center container mx-auto relative;
+
+      .arrows {
+        @apply flex items-center justify-between w-full absolute;
+
+        button {
+          @apply text-white hover:text-yellow cursor-pointer transition-colors max-w-36;
+
+          span {
+            @apply md:text-xl text-[9px] font-modern-negra leading-none md:block;
+          }
+        }
+      }
+    }
+
+    .itemImage {
+      @apply flex-center mt-10;
+
+      img {
+        @apply object-contain h-[60vh];
+      }
+    }
+
+    .recipe {
+      @apply flex max-md:flex-col gap-10 md:items-center justify-between w-full lg:absolute bottom-0;
+
+      .info {
+        @apply space-y-4 lg:translate-y-20;
+
+        #title {
+          @apply font-modern-negra md:text-4xl text-3xl text-yellow max-w-40;
+        }
+      }
+
+      .details {
+        @apply space-y-5 md:max-w-md text-left;
+
+        h2 {
+          @apply md:text-4xl text-3xl font-serif;
         }
 
-        .itemImage {
-            @apply flex-center mt-10;
-
-            img {
-                @apply object-contain h-[60vh];
-            }
+        p {
+          @apply md:text-lg pe-5;
         }
-
-        .recipe {
-            @apply flex max-md:flex-col gap-10 md:items-center justify-between w-full lg:absolute bottom-0;
-
-            .info {
-                @apply space-y-4 lg:translate-y-20;
-
-                #title {
-                    @apply font-modern-negra md:text-4xl text-3xl text-yellow max-w-40;
-                }
-            }
-
-            .details {
-                @apply space-y-5 md:max-w-md text-left;
-
-                h2 {
-                    @apply md:text-4xl text-3xl font-serif;
-                }
-
-                p {
-                    @apply md:text-lg pe-5;
-                }
-            }
-        }
+      }
+    }
   }
 }
 
@@ -355,13 +356,13 @@ body {
     left: -90px;
     bottom: -40px;
   }
-  #b-right-tomato{
-    width: 45% ;
+  #b-right-tomato {
+    width: 45%;
     bottom: 0;
     top: auto;
   }
-   #b-left-tomato{
-    width: 45% ;
+  #b-left-tomato {
+    width: 45%;
     bottom: 0;
     top: auto;
   }

@@ -2,13 +2,13 @@ import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { SplitText } from "gsap/all";
-import { useRef} from "react";
+import { useRef } from "react";
 import { useMediaQuery } from "react-responsive";
 
 gsap.registerPlugin(ScrollTrigger);
 
 const Hero = () => {
- const videoRef = useRef();
+	const videoRef = useRef();
 
 	const isMobile = useMediaQuery({ maxWidth: 767 });
 
@@ -55,72 +55,74 @@ const Hero = () => {
 
 		const startValue = isMobile ? "top 50%" : "center 60%";
 		const endValue = isMobile ? "116% top" : "bottom top";
-		
+
 		let tl = gsap.timeline({
-		 scrollTrigger: {
-			trigger: "video",
-			start: startValue,
-			end: endValue,
-			scrub: true,
-			pin: true,
-		 },
+			scrollTrigger: {
+				trigger: "video",
+				start: startValue,
+				end: endValue,
+				scrub: true,
+				pin: true,
+			},
 		});
 
 
 		videoRef.current.onloadedmetadata = () => {
-		 videoRef.current.play().then(() => {
-			videoRef.current.pause();
-			tl.to(videoRef.current, {
-				currentTime: videoRef.current.duration - 0.05,
-				duration: 3,
-				ease: "none",
+			videoRef.current.play().then(() => {
+				videoRef.current.pause();
+				tl.to(videoRef.current, {
+					currentTime: videoRef.current.duration - 0.05,
+					duration: 3,
+					ease: "none",
+				});
 			});
-		 });
 		};
 	}, []);
 
-  return (
-    <>
-      <section id="hero" className="noisy">
-        <h1 className="title">Burgro</h1>
+	return (
+		<>
+			<section id="hero" className="noisy">
+				<h1 className="title">Burgro</h1>
 
-        <img
-          src="/images/katchep2.png"
-          alt="left-katchep"
-          className="left-katchep katcheb_img_left hidden lg:block opacity-[.8] w-50 md:w-80"
-        />
-        <img
-          src="/images/katchep2.png"
-          alt="right-katchep"
-          className="right-katchep katcheb_img_right hidden w-50 md:w-80 lg:block opacity-[.8]"
-        />
+				<img
+					src="/images/katchep2.png"
+					alt="left-katchep"
+					className="left-katchep katcheb_img_left hidden lg:block opacity-[.8] w-50 md:w-80"
+				/>
+				<img
+					src="/images/katchep2.png"
+					alt="right-katchep"
+					className="right-katchep katcheb_img_right hidden w-50 md:w-80 lg:block opacity-[.8]"
+				/>
 
-        <div className="body">
-          <img src="/images/arrow.png" alt="arrow" className="arrow" />
+				<div className="body">
+					<img src="/images/arrow.png" alt="arrow" className="arrow" />
 
-          <div className="content">
-            <div className="space-y-5 hidden md:block">
-              <p>Bold. Juicy. Legendary.</p>
-              <p className="subtitle">
-                Taste the Flame<br /> Love the Crunch
-              </p>
-            </div>
+					<div className={`content`}>
+						<div className="space-y-5 hidden md:block">
+							<p>Bold. Juicy. Legendary.</p>
+							<p className="subtitle">
+								Taste the Flame<br /> Love the Crunch
+							</p>
+						</div>
 
-            <div className="view-burgers">
-              <p className="subtitle">
-                Every burger we craft is packed with fire-grilled flavor,
-                layered with melty cheese, crisp veggies,
-                and sauces born to blow your mind.
-              </p>
-              <a href="#burgers">View Burgers</a>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ✅ Video wrapper that gets pinned */}
-        <div className="video absolute inset-0">
-
+						<div  
+						className=
+						{`view-burgers `}
+						>
+							<p className="subtitle">
+								Every burger we craft is packed with fire-grilled flavor,
+								layered with melty cheese, crisp veggies,
+								and sauces born to blow your mind.
+							</p>
+							<a href="#burgers">View Burgers</a>
+						</div>
+					</div>
+				</div>
+				
+			</section>
+{/* Video wrapper pinned */}
+			<div className="video absolute inset-0">
 				<video
 					ref={videoRef}
 					muted
@@ -128,12 +130,10 @@ const Hero = () => {
 					preload="auto"
 					src="/videos/output3.mp4"
 				/>
-				
-				
-
-	    </div>
-    </>
-  );
+			</div>
+			
+		</>
+	);
 };
 
 export default Hero;
