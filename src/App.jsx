@@ -6,6 +6,7 @@ import Hero from './components/Hero'
 import BurgerItems from './components/BurgerItems'
 import About from './components/About'
 import ArtBurger from './components/ArtBurger'
+import Menu from './components/Menu'
 
 gsap.registerPlugin(ScrollTrigger, SplitText)
 
@@ -18,6 +19,7 @@ function App() {
       <BurgerItems />
       <About />
       <ArtBurger />
+      <Menu />
     </main>
   )
 }

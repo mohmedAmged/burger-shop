@@ -83,10 +83,118 @@ const goodLists = [
   "Signature sauces made in-house",
   "Cooked over real fire for authentic taste",
 ];
+const allBurgers = [
+  // Chicken Burgers
+  {
+    id: 1,
+    category: "chicken",
+    name: "Crispy Deluxe",
+    image: "/images/menu/chicken/chicken2.png",
+    title: "Golden Crunch, Tender",
+    description: "Juicy fried chicken with cheddar, lettuce, tomato, and mayo on brioche bun.",
+  },
+  {
+    id: 2,
+    category: "chicken",
+    name: "Spicy Buffalo",
+    image: "/images/menu/chicken/chicken3.png",
+    title: "Heat That Hits Right",
+    description: "Crispy chicken in buffalo sauce, topped with ranch, lettuce, and pickles.",
+  },
+  {
+    id: 3,
+    category: "chicken",
+    name: "Herb Grilled",
+    image: "/images/menu/chicken/chicken1.png",
+    title: "Fresh, Light, Flavor",
+    description: "Grilled chicken with herbs, lettuce, tomato, and garlic aioli on bun.",
+  },
+
+  // Beef Burgers
+  {
+    id: 5,
+    category: "beef",
+    name: "Classic Royale",
+    image: "/images/menu/beef/beef2.png",
+    title: "Where It Began",
+    description: "Thick beef patty with cheddar, lettuce, tomato, and signature sauce bun.",
+  },
+  {
+    id: 6,
+    category: "beef",
+    name: "Smoky Bacon",
+    image: "/images/menu/beef/beef3.png",
+    title: "Smoked and Sauced",
+    description: "Grilled beef with bacon, melted cheese, onions, and smoky BBQ sauce.",
+  },
+  {
+    id: 7,
+    category: "beef",
+    name: "Cheese Inferno",
+    image: "/images/menu/beef/beef1.png",
+    title: "Stacked With Flavor",
+    description: "Double beef patties with cheddar, jalapeños, and spicy chipotle mayo.",
+  },
+
+  // Meals
+  {
+    id: 9,
+    category: "meals",
+    name: "Family Box",
+    image: "/images/menu/meals/meal2.png",
+    title: "A Feast For All",
+    description: "Two beef, two chicken burgers, large fries, onion rings, and four drinks.",
+  },
+  {
+    id: 10,
+    category: "meals",
+    name: "Fries Supreme",
+    image: "/images/menu/meals/meal3.png",
+    title: "Overflowing Goodness",
+    description: "Crispy fries with cheese, jalapeños, shredded beef, and ranch drizzle.",
+  },
+  {
+    id: 11,
+    category: "meals",
+    name: "Burger Platter",
+    image: "/images/menu/meals/meal1.png",
+    title: "All Best in One",
+    description: "Mini chicken and beef sliders with dips, fries, and coleslaw included.",
+  },
+
+  // Drinks
+  {
+    id: 13,
+    category: "drinks",
+    name: "Classic Mojito",
+    image: "/images/menu/drinks/drink1.png",
+    title: "Bold Simple Flavor",
+    description: "Refreshing lime, mint, and soda with a hint of sweetness and ice.",
+  },
+  {
+    id: 14,
+    category: "drinks",
+    name: "Violet Breeze",
+    image: "/images/menu/drinks/drink3.png",
+    title: "Cool Calm Colors",
+    description: "Floral violet drink with lavender, lemon, and crushed ice finish.",
+  },
+  {
+    id: 15,
+    category: "drinks",
+    name: "Curacao Mojito",
+    image: "/images/menu/drinks/drink2.png",
+    title: "Crafted With Love",
+    description: "Blue mojito with mint, lime, and Curacao for tropical refreshment.",
+  },
+];
+
+
 export {
     navLinks,
     burgerPopular,
     burgerSpecials,
     featureLists,
-    goodLists
+    goodLists,
+    allBurgers
 };
