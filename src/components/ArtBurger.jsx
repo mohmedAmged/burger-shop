@@ -31,7 +31,7 @@ const ArtBurger = () => {
 		<h2 className="will-fade">Burger</h2>
 		
 		<div className="content">
-		 <ul className="space-y-4 will-fade">
+		 <ul className="space-y-3 will-fade">
 			{goodLists.map((feature, index) => (
 			 <li key={index} className="flex items-center gap-2">
 				<img src="/images/check.png" alt="check" />
@@ -48,7 +48,7 @@ const ArtBurger = () => {
 			/>
 		 </div>
 		 
-		 <ul className="space-y-4 will-fade">
+		 <ul className="space-y-3 will-fade">
 			{featureLists.map((feature, index) => (
 			 <li key={index} className="flex items-center justify-start gap-2">
 				<img src="/images/check.png" alt="check" />
