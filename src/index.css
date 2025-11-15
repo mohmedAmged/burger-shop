@@ -314,10 +314,10 @@ background: linear-gradient(to bottom, #f7be73, #8b604a);
     }
 
     .itemImage {
-      @apply flex-center mt-10;
+      @apply flex-center mt-10 overflow-hidden md:overflow-visible;
 
       img {
-        @apply object-contain h-[60vh];
+        @apply object-contain h-[60vh] overflow-hidden md:overflow-visible;
       }
     }
 
