@@ -67,7 +67,7 @@ const Menu = () => {
                     </button>
                 ))}
             </div>
-            <nav className="burger-tabs" aria-label="Cocktail Navigation">
+            <nav style={{background: 'unset'}} className="burger-tabs nav_bg" aria-label="Cocktail Navigation">
                 {filteredItems.map((item, index) => {
                     const isActive = index === currentIndex;
 
@@ -88,12 +88,12 @@ const Menu = () => {
                 <div className="arrows">
                     <button className="text-left" onClick={() => goToSlide(currentIndex - 1)}>
                         <span>{prevItem.name}</span>
-                        <img src="/images/right-arrow.png" alt="right-arrow" aria-hidden="true" />
+                        <img src="/images/left.png" className='scale-x-[-1] w-10 md:w-20' alt="right-arrow" aria-hidden="true" onClick={() => goToSlide(currentIndex + 1)}/>
                     </button>
 
                     <button className="text-left" onClick={() => goToSlide(currentIndex + 1)}>
                         <span>{nextItem.name}</span>
-                        <img src="/images/left-arrow.png" alt="left-arrow" aria-hidden="true" />
+                        <img src="/images/left.png" alt="left-arrow" className='w-10 md:w-20' aria-hidden="true" onClick={() => goToSlide(currentIndex + 1)}/>
                     </button>
                 </div>
 

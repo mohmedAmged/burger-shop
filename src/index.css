@@ -8,24 +8,21 @@
 }
 
 @theme {
-  --color-yellow: #e7d393;
+  --color-yellow: #f7ac5c;
   --color-white-100: #efefef;
   --font-sans: "Poppins", sans-serif;
-  /* --font-modern-negra: "Modern Negra", sans-serif; */
   --font-modern-negra: "Bebas Neue", sans-serif;
-  /* --font-serif: "DM Serif Text", serif; */
   --font-serif: "Poppins", serif;
+  --color-white: #fff2d4
 }
-
 html,
 body {
   width: 100%;
   background-color: black;
-  color: white;
+  color: #fff2d4;
   scroll-behavior: smooth;
   overflow-x: hidden;
 }
-
 @utility flex-center {
   @apply flex justify-center items-center;
 }
@@ -39,7 +36,7 @@ body {
 }
 
 @utility text-gradient {
-  background: linear-gradient(to bottom, #ffffff, #898989);
+background: linear-gradient(to bottom, #f7be73, #8b604a);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -47,9 +44,9 @@ body {
 
 @utility radial-gradient {
   background: radial-gradient(
-    circle at center,
-    #434343 0%,
-    #000 50%,
+    circle at center ,
+    #f7ac5c 0%,
+    #000000 50%,
     transparent 100%
   );
 }
@@ -91,15 +88,15 @@ body {
   }
 
   .noisy {
-    /* @apply absolute inset-0 size-full bg-[url("/images/noise.png")]; */
-    @apply absolute inset-0 size-full bg-black/30;
+    @apply absolute inset-0 size-full bg-[url("/images/noise.png")];
+    /* @apply absolute inset-0 size-full bg-black/30; */
   }
 
   #hero {
-    @apply relative z-10 min-h-dvh w-full border border-transparent;
+    @apply relative z-10 min-h-dvh w-full overflow-hidden border border-transparent;
 
     h1 {
-      @apply md:mt-32 mt-40 text-8xl md:text-[15vw] leading-none text-center font-modern-negra;
+      @apply relative z-20 md:mt-32 mt-40 text-8xl md:text-[15vw] leading-none text-center font-modern-negra ;
     }
 
     .left-katchep {
@@ -125,7 +122,7 @@ body {
         }
 
         .view-burgers {
-          @apply space-y-5 text-lg lg:max-w-2xs md:max-w-xs w-full;
+          @apply relative z-20 space-y-5 text-lg lg:max-w-2xs md:max-w-xs w-full;
 
           p {
             @apply text-left;
@@ -192,7 +189,7 @@ body {
     }
   }
   #about {
-    @apply min-h-screen py-28 2xl:px-0 px-5 container mx-auto;
+    @apply min-h-screen py-28 2xl:px-0 px-5 container mx-auto radial-gradient;
 
     .content {
       @apply grid grid-cols-1 lg:grid-cols-12 gap-5;
@@ -250,7 +247,7 @@ body {
     @apply flex-center flex-col h-auto p-5 mt-20 relative radial-gradient;
 
     h2 {
-      @apply relative text-[30vw] md:text-[20vw] text-8xl text-nowrap leading-none font-modern-negra text-center text-[#505050] mb-8 -top-[18px] md:top-0;
+      @apply relative text-[30vw] md:text-[20vw] text-8xl text-nowrap leading-none font-modern-negra text-center text-[#FF3D2E] mb-8 -top-[18px] md:top-0;
     }
 
     .content {
@@ -289,7 +286,9 @@ body {
         @apply cursor-pointer transition-colors border-b-2 pb-2 font-modern-negra;
       }
     }
-
+    .nav_bg{
+      background-color: rgba(0, 0, 0, 0) !important;
+    }
     .burger-tabs {
       @apply grid md:grid-cols-3 grid-cols-2 md:gap-20 gap-10 sm:mb-32 mb-20 relative z-10 md:max-w-6xl md:mx-auto;
 

@@ -28,7 +28,7 @@ const ArtBurger = () => {
  return (
 	<div id="art">
 	 <div className="container mx-auto h-full pt-0 md:pt-15">
-		<h2 className="will-fade">Burger</h2>
+		<h2 className="will-fade text-gradient">Burger</h2>
 		
 		<div className="content">
 		 <ul className="space-y-3 will-fade">

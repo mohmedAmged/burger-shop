@@ -82,7 +82,7 @@ const Hero = () => {
 	return (
 		<>
 			<section id="hero" className="noisy">
-				<h1 className="title">Burgro</h1>
+				<h1 style={{color:'#FF3D2E'}} className="title">Burgro</h1>
 
 				<img
 					src="/images/katchep2.png"
@@ -128,7 +128,7 @@ const Hero = () => {
 					muted
 					playsInline
 					preload="auto"
-					src="/videos/output3.mp4"
+					src="/videos/output9.mp4"
 				/>
 			</div>
 			
