@@ -67,7 +67,7 @@ const Menu = () => {
             const endX = e.changedTouches ? e.changedTouches[0].clientX : e.clientX;
             const diff = endX - startX;
 
-            const threshold = 10; 
+            const threshold = 40; 
 
             if (diff > threshold) {
                 goToSlide(currentIndex - 1); // swipe RIGHT → previous
