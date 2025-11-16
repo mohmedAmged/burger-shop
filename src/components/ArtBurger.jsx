@@ -11,7 +11,7 @@ const ArtBurger = () => {
 	
 	const maskTimeline = gsap.timeline({
 	 scrollTrigger: {
-		trigger: '#art',
+		trigger: '#story',
 		start,
 		end: 'bottom center',
 		scrub: 1.5,
@@ -26,9 +26,9 @@ const ArtBurger = () => {
  })
  
  return (
-	<div id="art">
+	<div id="story">
 	 <div className="container mx-auto h-full pt-0 md:pt-15">
-		<h2 className="will-fade text-gradient">Burger</h2>
+		<h2 className="will-fade text-gradient">Burgro</h2>
 		
 		<div className="content">
 		 <ul className="space-y-3 will-fade">

@@ -1,11 +1,13 @@
 import { allBurgers } from '../../constants/index.js'
-import { useMemo, useRef, useState } from 'react'
+import { useEffect, useMemo, useRef, useState } from 'react'
 import { useGSAP } from '@gsap/react'
 import gsap from 'gsap';
 const categories = ["chicken", "beef", "meals", "drinks"];
 
 const Menu = () => {
     const contentRef = useRef();
+    const imageContainerRef = useRef();
+
     const [activeCategory, setActiveCategory] = useState("chicken");
     const [currentIndex, setCurrentIndex] = useState(0);
 
@@ -28,7 +30,6 @@ const Menu = () => {
         })
     }, [currentIndex]);
 
-    //  const totalItems = allBurgers.length;
 
     const goToSlide = (index) => {
         const newIndex = (index + totalItems) % totalItems;
@@ -44,6 +45,61 @@ const Menu = () => {
     const prevItem = getItemsAt(-1);
     const nextItem = getItemsAt(1);
 
+    useEffect(() => {
+        const el = imageContainerRef.current;
+        if (!el) return;
+
+        let startX = 0;
+        let isDragging = false;
+
+        const onStart = (e) => {
+            isDragging = true;
+            startX = e.touches ? e.touches[0].clientX : e.clientX;
+        };
+
+        // eslint-disable-next-line no-unused-vars
+        const onMove = (e) => {
+            if (!isDragging) return;
+        };
+
+        const onEnd = (e) => {
+            if (!isDragging) return;
+            const endX = e.changedTouches ? e.changedTouches[0].clientX : e.clientX;
+            const diff = endX - startX;
+
+            const threshold = 10; 
+
+            if (diff > threshold) {
+                goToSlide(currentIndex - 1); // swipe RIGHT → previous
+            } else if (diff < -threshold) {
+                goToSlide(currentIndex + 1); // swipe LEFT → next
+            }
+
+            isDragging = false;
+        };
+
+        // Desktop
+        el.addEventListener("mousedown", onStart);
+        el.addEventListener("mousemove", onMove);
+        el.addEventListener("mouseup", onEnd);
+        el.addEventListener("mouseleave", onEnd);
+
+        // Mobile Touch
+        el.addEventListener("touchstart", onStart);
+        el.addEventListener("touchmove", onMove);
+        el.addEventListener("touchend", onEnd);
+
+        return () => {
+            el.removeEventListener("mousedown", onStart);
+            el.removeEventListener("mousemove", onMove);
+            el.removeEventListener("mouseup", onEnd);
+            el.removeEventListener("mouseleave", onEnd);
+
+            el.removeEventListener("touchstart", onStart);
+            el.removeEventListener("touchmove", onMove);
+            el.removeEventListener("touchend", onEnd);
+        };
+    }, [currentIndex, totalItems]);
     return (
         <section id="menu" aria-labelledby="menu-heading">
             <h2 id="menu-heading" className="sr-only">
@@ -97,14 +153,18 @@ const Menu = () => {
                     </button>
                 </div>
 
-                <div className="itemImage">
+                <div ref={imageContainerRef} className="itemImage">
                     <img src={currentItem.image} alt={currentItem.name} className="object-contain" />
                 </div>
 
                 <div className="recipe">
                     <div ref={contentRef} className="info">
                         <p>Recipe for:</p>
-                        <p id="title">{currentItem.name}</p>
+                        <p id="title">
+                            {currentItem.name} - {currentItem.price}
+                        </p>
+
+                       
                     </div>
 
                     <div className="details">

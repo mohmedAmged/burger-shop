@@ -39,11 +39,11 @@ export default function BurgerItems() {
 					<h2>Most Popular Burgers:</h2>
 
 					<ul>
-						{burgerPopular.map(({ name, country, detail, price }) => (
+						{burgerPopular.map(({ name, category, detail, price }) => (
 							<li key={name}>
 								<div className="md:me-10">
 									<h3>{name}</h3>
-									<p>{country} | {detail}</p>
+									<p>{category} | {detail}</p>
 								</div>
 								<span>- {price}</span>
 							</li>
@@ -55,11 +55,11 @@ export default function BurgerItems() {
 					<h2>Most Loved Specials:</h2>
 
 					<ul>
-						{burgerSpecials.map(({ name, country, detail, price }) => (
+						{burgerSpecials.map(({ name, category, detail, price }) => (
 							<li key={name}>
 								<div className="me-10">
 									<h3>{name}</h3>
-									<p>{country} | {detail}</p>
+									<p>{category} | {detail}</p>
 								</div>
 								<span>- {price}</span>
 							</li>

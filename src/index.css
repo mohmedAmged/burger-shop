@@ -13,8 +13,9 @@
   --font-sans: "Poppins", sans-serif;
   --font-modern-negra: "Bebas Neue", sans-serif;
   --font-serif: "Poppins", serif;
-  --color-white: #fff2d4
+  --color-white: #fff2d4;
 }
+
 html,
 body {
   width: 100%;
@@ -23,6 +24,7 @@ body {
   scroll-behavior: smooth;
   overflow-x: hidden;
 }
+
 @utility flex-center {
   @apply flex justify-center items-center;
 }
@@ -36,19 +38,17 @@ body {
 }
 
 @utility text-gradient {
-background: linear-gradient(to bottom, #f7be73, #8b604a);
+  background: linear-gradient(to bottom, #f7be73, #8b604a);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
 }
 
 @utility radial-gradient {
-  background: radial-gradient(
-    circle at center ,
-    #f7ac5c 0%,
-    #000000 50%,
-    transparent 100%
-  );
+  background: radial-gradient(circle at center,
+      #f7ac5c 0%,
+      #000000 50%,
+      transparent 100%);
 }
 
 @utility masked-img {
@@ -96,7 +96,7 @@ background: linear-gradient(to bottom, #f7be73, #8b604a);
     @apply relative z-10 min-h-dvh w-full overflow-hidden border border-transparent;
 
     h1 {
-      @apply relative z-20 md:mt-32 mt-40 text-8xl md:text-[15vw] leading-none text-center font-modern-negra ;
+      @apply relative z-20 md:mt-32 mt-40 text-8xl md:text-[15vw] leading-none text-center font-modern-negra;
     }
 
     .left-katchep {
@@ -137,9 +137,8 @@ background: linear-gradient(to bottom, #f7be73, #8b604a);
   }
 
   video {
-    @apply w-full md:h-[80%] h-1/2 absolute bottom-0 left-0 md:object-contain object-bottom object-cover ;
+    @apply w-full md:h-[80%] h-1/2 absolute bottom-0 left-0 md:object-contain object-bottom object-cover;
   }
-
 
   #burgers {
     @apply relative min-h-dvh w-full overflow-hidden;
@@ -188,6 +187,7 @@ background: linear-gradient(to bottom, #f7be73, #8b604a);
       }
     }
   }
+
   #about {
     @apply min-h-screen py-28 2xl:px-0 px-5 container mx-auto radial-gradient;
 
@@ -222,7 +222,7 @@ background: linear-gradient(to bottom, #f7be73, #8b604a);
     .top-grid {
       @apply grid grid-cols-1 xl:grid-cols-12 gap-5 mb-5 md:px-0 px-5;
 
-      > div {
+      >div {
         @apply rounded-3xl overflow-hidden h-72 relative;
       }
 
@@ -234,7 +234,7 @@ background: linear-gradient(to bottom, #f7be73, #8b604a);
     .bottom-grid {
       @apply grid grid-cols-1 md:grid-cols-12 gap-5 md:px-0 px-5;
 
-      > div {
+      >div {
         @apply rounded-3xl overflow-hidden h-72 relative;
       }
 
@@ -243,7 +243,8 @@ background: linear-gradient(to bottom, #f7be73, #8b604a);
       }
     }
   }
-  #art {
+
+  #story {
     @apply flex-center flex-col h-auto p-5 mt-20 relative radial-gradient;
 
     h2 {
@@ -251,7 +252,7 @@ background: linear-gradient(to bottom, #f7be73, #8b604a);
     }
 
     .content {
-      @apply flex md:flex-row flex-col justify-between md:mb-16  mt-30 md:mt-0 gap-10;
+      @apply flex md:flex-row flex-col justify-between md:mb-16 mt-30 md:mt-0 gap-10;
     }
 
     .burger-img {
@@ -276,6 +277,7 @@ background: linear-gradient(to bottom, #f7be73, #8b604a);
       }
     }
   }
+
   #menu {
     @apply relative w-full md:mt-40 mt-0 2xl:px-0 px-5 py-20 radial-gradient overflow-hidden;
 
@@ -286,9 +288,11 @@ background: linear-gradient(to bottom, #f7be73, #8b604a);
         @apply cursor-pointer transition-colors border-b-2 pb-2 font-modern-negra;
       }
     }
-    .nav_bg{
+
+    .nav_bg {
       background-color: rgba(0, 0, 0, 0) !important;
     }
+
     .burger-tabs {
       @apply grid md:grid-cols-3 grid-cols-2 md:gap-20 gap-10 sm:mb-32 mb-20 relative z-10 md:max-w-6xl md:mx-auto;
 
@@ -318,6 +322,10 @@ background: linear-gradient(to bottom, #f7be73, #8b604a);
 
       img {
         @apply object-contain h-[60vh] overflow-hidden md:overflow-visible;
+        cursor: grab;
+        -webkit-user-select: none;
+        user-select: none;
+        touch-action: pan-y;
       }
     }
 
@@ -330,6 +338,10 @@ background: linear-gradient(to bottom, #f7be73, #8b604a);
         #title {
           @apply font-modern-negra md:text-4xl text-3xl text-yellow max-w-40;
         }
+        .price-tag {
+  @apply mt-2 text-yellow font-modern-negra text-2xl;
+  text-shadow: 0 0 8px rgba(247, 172, 92, 0.5);
+}
       }
 
       .details {
@@ -345,21 +357,67 @@ background: linear-gradient(to bottom, #f7be73, #8b604a);
       }
     }
   }
+
+  #contact {
+    @apply relative md:mt-20 mt-0 text-center w-full overflow-hidden radial-gradient;
+
+    .contact-video-wrapper {
+      @apply absolute inset-0 w-full h-full pointer-events-none z-0;
+    }
+
+    .contact-video-wrapper::after {
+      content: "";
+      @apply absolute inset-0 bg-black/30;
+    }
+
+    .contact-video {
+      @apply w-full h-full object-cover opacity-60;
+    }
+
+    .content {
+      @apply relative z-10 container mx-auto lg:py-14 2xl:py-32 py-16 flex flex-col justify-between gap-10 min-h-dvh;
+
+      h2 {
+        @apply lg:text-6xl 2xl:text-8xl text-5xl font-modern-negra md:translate-y-0 translate-y-5;
+      }
+
+      h3 {
+        @apply uppercase xl:text-base 2xl:text-lg text-base mb-2;
+      }
+
+      p {
+        @apply lg:text-2xl 2xl:text-3xl text-sm;
+      }
+    }
+
+  
+  }
+.footer-bottom {
+  @apply w-full text-center py-5 text-base font-modern-negra;
+  background-color: #000000;
+  color: #fff2d4;
+  text-transform: uppercase;
+  opacity: 0.9;
+  letter-spacing: 2px;
+}
 }
 
 @media screen and (max-width: 820px) {
   .katcheb_img_right {
     right: -80px;
   }
+
   .katcheb_img_left {
     left: -90px;
     bottom: -40px;
   }
+
   #b-right-tomato {
     width: 45%;
     bottom: 0;
     top: auto;
   }
+
   #b-left-tomato {
     width: 45%;
     bottom: 0;
@@ -370,6 +428,7 @@ background: linear-gradient(to bottom, #f7be73, #8b604a);
 .katcheb_img_right {
   right: -70px;
 }
+
 .katcheb_img_left {
   left: -70px;
 }
