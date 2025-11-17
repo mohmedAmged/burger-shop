@@ -279,7 +279,7 @@ body {
   }
 
   #menu {
-    @apply relative w-full md:mt-40 mt-0 2xl:px-0 px-5 py-20 radial-gradient overflow-hidden;
+    @apply relative w-full md:mt-40 mt-0 px-5 py-20 radial-gradient overflow-hidden;
 
     .category-tabs {
       @apply flex justify-center flex-wrap gap-8 mb-16 md:mb-24;
