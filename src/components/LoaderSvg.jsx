@@ -75,7 +75,7 @@ export default function LoaderSVG() {
                     ease: "power2.out",
                 });
             }
-        }, 30);
+        }, 35);
 
         return () => clearInterval(interval);
     }, []);
