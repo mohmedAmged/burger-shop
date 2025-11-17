@@ -18,7 +18,7 @@ function App() {
     useEffect(() => {
         const timer = setTimeout(() => {
           gsap.to(".loader", { opacity: 0, duration: 0.8, onComplete: () => setIsLoading(false) })
-        }, 3100)
+        }, 3500)
 
         return () => clearTimeout(timer)
       }, [])
