@@ -35,7 +35,7 @@ const ArtBurger = () => {
 			{goodLists.map((feature, index) => (
 			 <li key={index} className="flex items-center gap-2">
 				<img src="/images/check.png" alt="check" />
-				<p className="lg:w-fit md:w-63 w-60">{feature}</p>
+				<p className="lg:w-fit md:w-63 w-100">{feature}</p>
 			 </li>
 			))}
 		 </ul>
@@ -52,7 +52,7 @@ const ArtBurger = () => {
 			{featureLists.map((feature, index) => (
 			 <li key={index} className="flex items-center justify-start gap-2">
 				<img src="/images/check.png" alt="check" />
-				<p className="lg:w-fit md:w-63 w-60">{feature}</p>
+				<p className="lg:w-fit md:w-63 w-100">{feature}</p>
 			 </li>
 			))}
 		 </ul>
