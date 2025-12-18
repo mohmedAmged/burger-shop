@@ -10,6 +10,11 @@ import Menu from './components/Menu'
 import Contact from './components/Contact'
 import { useEffect, useState } from 'react'
 import LoaderSVG from './components/LoaderSvg'
+import { Route, Routes } from 'react-router-dom'
+import Home from './pages/Home'
+import SignIn from './pages/SignIn'
+import SignUp from './pages/signUp'
+import Cart from './pages/Cart'
 
 gsap.registerPlugin(ScrollTrigger, SplitText)
 
@@ -24,7 +29,7 @@ function App() {
       }, [])
 
   return (
-    <main>
+    <>
     {isLoading &&
      <div className='loader'>
         <LoaderSVG />
@@ -33,15 +38,17 @@ function App() {
       {!isLoading && (
         <>
           <Navbar />
-          <Hero />
-          <BurgerItems />
-          <About />
-          <ArtBurger />
-          <Menu />
-          <Contact />
+          <main>
+            <Routes>
+              <Route path='/' element={<Home />} />
+              <Route path='/sign-in' element={<SignIn />} />
+              <Route path='/sign-up' element={<SignUp />} />
+              <Route path='/cart' element={<Cart />} />
+            </Routes>
+          </main>
         </>
       )}
-    </main>
+    </>
   )
 }
 
