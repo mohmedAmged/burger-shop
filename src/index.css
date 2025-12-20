@@ -24,12 +24,6 @@ body {
   scroll-behavior: smooth;
   overflow-x: hidden;
 }
-/* .text-color-yellow{
-  color: #f7ac5c !important;
-}
-.text-color-white{
-  color: #fff2d4 !important;
-} */
 .bg-color-yellow{
   background-color: #f7ac5c ;
 }
@@ -78,7 +72,7 @@ body {
     @apply w-full overflow-x-hidden;
   }
 
-  nav {
+  /* nav {
     @apply fixed z-50 w-full;
 
     div {
@@ -96,7 +90,7 @@ body {
     ul {
       @apply flex-center lg:gap-12 gap-7;
     }
-  }
+  } */
 
   .noisy {
     /* @apply absolute inset-0 size-full bg-[url("/images/noise.png")]; */

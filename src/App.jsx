@@ -2,12 +2,6 @@ import gsap from 'gsap'
 import './App.css'
 import { ScrollTrigger, SplitText } from 'gsap/all'
 import Navbar from './components/Navbar'
-import Hero from './components/Hero'
-import BurgerItems from './components/BurgerItems'
-import About from './components/About'
-import ArtBurger from './components/ArtBurger'
-import Menu from './components/Menu'
-import Contact from './components/Contact'
 import { useEffect, useState } from 'react'
 import LoaderSVG from './components/LoaderSvg'
 import { Route, Routes } from 'react-router-dom'
@@ -15,6 +9,12 @@ import Home from './pages/Home'
 import SignIn from './pages/SignIn'
 import SignUp from './pages/SignUp'
 import Cart from './pages/Cart'
+import Contact from './components/Contact'
+import OurStory from './pages/OurStory'
+import AboutUs from './pages/AboutUs'
+import MenuItems from './pages/MenuItems'
+import MyNavbar from './components/MyNavbar'
+import { Toaster } from 'react-hot-toast'
 
 gsap.registerPlugin(ScrollTrigger, SplitText)
 
@@ -37,15 +37,20 @@ function App() {
      }
       {!isLoading && (
         <>
-          <Navbar />
+          <Toaster position="top-right" reverseOrder={false} />
+          <MyNavbar/>
           <main>
             <Routes>
               <Route path='/' element={<Home />} />
+              <Route path='/story' element={<OurStory />} />
+              <Route path='/about' element={<AboutUs />} />
+              <Route path='/menu' element={<MenuItems />} />
               <Route path='/sign-in' element={<SignIn />} />
               <Route path='/sign-up' element={<SignUp />} />
               <Route path='/cart' element={<Cart />} />
             </Routes>
           </main>
+            <Contact />
         </>
       )}
     </>

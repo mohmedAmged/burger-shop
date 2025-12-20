@@ -11,12 +11,11 @@ const navLinks = [
     id: "story",
     title: "Our Story",
   },
-  {
-    id: "contact",
-    title: "Contact",
-  },
+  // {
+  //   id: "contact",
+  //   title: "Contact",
+  // },
 ];
-
 const burgerPopular = [
   {
     name: "Smoky Bacon",
