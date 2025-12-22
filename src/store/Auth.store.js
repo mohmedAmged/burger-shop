@@ -8,15 +8,7 @@ export const useAuthStore = create((set) => ({
     token: Cookies.get('token') || null,
     loading: false,
 
-    // SIGN UP 
-
-    //  <div className="flex items-center justify-between">
-                    //     <label className="flex items-center">
-                    //         <input type="checkbox" className="rounded border-gray-300 text-indigo-600 focus:ring-indigo-500" />
-                    //         <span className="ml-2 text-sm text-gray-600">Remember me</span>
-                    //     </label>
-                    //     <a href="#" className="text-sm color-yellow hover:text-indigo-500">Forgot password?</a>
-                    // </div> 
+    // SIGN UP  
     signUp: async (payload) => {
         const toastId = toast.loading('Please Wait...');
         set({ loading: true })
@@ -44,7 +36,7 @@ export const useAuthStore = create((set) => ({
             return data
         } catch (error) {
             const message =
-                error.response?.data?.message || 'Signup failed'
+                error.response?.data?.error || 'Signup failed'
             toast.error(message)
             set({ loading: false })
             throw error
@@ -85,7 +77,7 @@ export const useAuthStore = create((set) => ({
             return data
         } catch (error) {
             const message =
-                error.response?.data?.message || 'Login failed'
+                error.response?.data?.error || 'Login failed'
             toast.error(message)
             set({ loading: false })
             throw error
@@ -110,7 +102,7 @@ export const useAuthStore = create((set) => ({
                 duration: 1000
             })
         } catch (error) {
-            toast.error('Logout failed')
+            toast.error(error.response?.data?.error||'Logout failed')
             throw error
         }
     },

@@ -19,26 +19,25 @@ import { Toaster } from 'react-hot-toast'
 gsap.registerPlugin(ScrollTrigger, SplitText)
 
 function App() {
-    const [isLoading, setIsLoading] = useState(true)
-    useEffect(() => {
-        const timer = setTimeout(() => {
-          gsap.to(".loader", { opacity: 0, duration: 0.8, onComplete: () => setIsLoading(false) })
-        }, 3800)
+  const [isLoading, setIsLoading] = useState(true)
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      gsap.to(".loader", { opacity: 0, duration: 0.8, onComplete: () => setIsLoading(false) })
+    }, 3800)
 
-        return () => clearTimeout(timer)
-      }, [])
-
+    return () => clearTimeout(timer)
+  }, [])
   return (
     <>
-    {isLoading &&
-     <div className='loader'>
-        <LoaderSVG />
-     </div>
-     }
+      {isLoading &&
+        <div className='loader'>
+          <LoaderSVG />
+        </div>
+      }
       {!isLoading && (
         <>
           <Toaster position="top-right" reverseOrder={false} />
-          <MyNavbar/>
+          <MyNavbar />
           <main>
             <Routes>
               <Route path='/' element={<Home />} />
@@ -50,7 +49,7 @@ function App() {
               <Route path='/cart' element={<Cart />} />
             </Routes>
           </main>
-            <Contact />
+          <Contact />
         </>
       )}
     </>
