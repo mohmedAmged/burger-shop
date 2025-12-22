@@ -67,7 +67,7 @@ export default function Cart() {
                 className="rounded-3xl border border-yellow/20 bg-black/50 p-6 md:p-6">
                     <div className="space-y-4 md:flex md:items-center md:justify-between md:gap-6 md:space-y-0">
                         <a href="#" className="shrink-0 md:order-1">
-                            <img className="hidden h-20 w-20 dark:block" src={item?.product?.image} alt={item?.product?._id} />
+                            <img className="h-20 w-20 dark:block" src={item?.product?.image} alt={item?.product?._id} />
                         </a>
 
                         <label htmlFor="counter-input" className="sr-only">Choose quantity:</label>
