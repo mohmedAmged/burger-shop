@@ -141,7 +141,7 @@ export default function Checkout() {
                                 <label className="block text-sm text-white/70 mb-2">
                                     Voucher / Promo Code (COMING SOON)
                                 </label>
-                                <div className="flex gap-3">
+                                <div className="flex flex-wrap gap-3">
                                     <input
                                         type="text"
                                         disabled
@@ -150,7 +150,7 @@ export default function Checkout() {
                                     <button
                                         type="button"
                                         disabled
-                                        className="rounded-lg bg-color-yellow px-5 py-2.5 text-sm font-bold text-black hover:opacity-90"
+                                        className="rounded-lg bg-color-yellow px-5 py-2.5 text-sm font-bold text-black hover:opacity-90 w-full md:w-auto"
                                     >
                                         Apply
                                     </button>
