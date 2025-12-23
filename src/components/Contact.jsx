@@ -30,7 +30,7 @@ const Contact = () => {
     })
 
     return (
-        <footer id="contact">
+        <footer id="contact" className='mt-0'>
             <div className="contact-video-wrapper">
                 <video
                     className="contact-video"

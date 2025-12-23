@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useCartStore } from '../store/cart.store'
 import InsideLoader from '../utils/InsideLoader';
+import HeadrSteps from '../utils/HeaderSteps';
 export default function Cart() {
     const { getCart, updateCartItem, removeFromCart, items, totalPrice, loading } = useCartStore();
 
@@ -44,8 +45,8 @@ export default function Cart() {
         <div className='min-h-screen py-28 2xl:px-0 px-5 container mx-auto'>
             <section className="radial-gradient py-8 antialiased md:py-16">
                 <div className="mx-auto max-w-screen-xl px-4 2xl:px-0">
-                    <h2 className="text-3xl font-modern-negra text-white sm:text-4xl">Shopping Cart</h2>
-
+                    <h2 className="text-3xl font-modern-negra text-white sm:text-4xl mb-8">Shopping Cart</h2>
+                    <HeadrSteps currentStep={'cart'}/>
                     <div className="mt-6 sm:mt-8 md:gap-6 lg:flex lg:items-start xl:gap-8">
                         <div className="mx-auto w-full flex-none lg:max-w-2xl xl:max-w-4xl">
                             <div className="space-y-6">
@@ -194,10 +195,14 @@ export default function Cart() {
                                     </dl>
                                 </div>
 
-                                <a href="#" className="flex w-full items-center justify-center rounded-lg bg-color-yellow px-6 py-3 text-lg font-bold text-black hover:opacity-90">Checkout</a>
+                                { items?.length !== 0 &&
+                                    <a href="/checkout" className="flex w-full items-center justify-center rounded-lg bg-color-yellow px-6 py-3 text-lg font-bold text-black hover:opacity-90">Checkout</a>
+                                }
 
                                 <div className="flex items-center justify-center gap-2">
-                                    <span className="text-sm font-normal text-white/70"> or </span>
+                                    { items?.length !== 0 &&
+                                        <span className="text-sm font-normal text-white/70"> or </span>
+                                    }
                                     <a href="/menu" title="" className="inline-flex items-center gap-2 text-sm font-medium text-yellow underline hover:no-underline">
                                         Continue Shopping
                                         <svg className="h-5 w-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">

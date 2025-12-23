@@ -109,7 +109,7 @@ const MyNavbar = () => {
                   Cart
                 </a>
                 <a
-                  href="/orders"
+                  href="/all-orders"
                   className="flex gap-2 px-4 py-3 text-sm hover:bg-white/10"
                 >
                   <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6">

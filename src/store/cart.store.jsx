@@ -41,8 +41,8 @@ export const useCartStore = create((set, get) => ({
                 (t) => (
                     <span className="flex items-center gap-2">
                         <span>{res.data.message || 'Added to cart'}</span>
-                        <Link
-                            to="/cart"
+                        <a
+                            href="/cart"
                             onClick={() => {
                                 toast.dismiss(t.id)
                                 scrollToTop();
@@ -50,7 +50,7 @@ export const useCartStore = create((set, get) => ({
                             className="font-bold underline text-yellow hover:opacity-80"
                         >
                             View cart
-                        </Link>
+                        </a>
                     </span>
                 ),
                 {

@@ -15,6 +15,9 @@ import AboutUs from './pages/AboutUs'
 import MenuItems from './pages/MenuItems'
 import MyNavbar from './components/MyNavbar'
 import { Toaster } from 'react-hot-toast'
+import Checkout from './pages/Checkout'
+import AllOrders from './pages/AllOrders'
+import OrderDetails from './pages/OrderDetails'
 
 gsap.registerPlugin(ScrollTrigger, SplitText)
 
@@ -47,6 +50,9 @@ function App() {
               <Route path='/sign-in' element={<SignIn />} />
               <Route path='/sign-up' element={<SignUp />} />
               <Route path='/cart' element={<Cart />} />
+              <Route path='/checkout' element={<Checkout />} />
+              <Route path='/all-orders' element={<AllOrders />} />
+              <Route path='/all-orders/:orderId' element={<OrderDetails />} />
             </Routes>
           </main>
           <Contact />
