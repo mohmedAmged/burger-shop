@@ -7,7 +7,10 @@ import { scrollToTop } from '../functions/scrollToTop'
 // eslint-disable-next-line no-unused-vars
 export const useCartStore = create((set, get) => ({
     items: [],
-    totalPrice: null,
+    totalPrice: 0,
+    voucher: null,
+    savings: 0,
+    totalPriceAfterCode: 0,
     loading: false,
 
     // GET CART
@@ -18,6 +21,9 @@ export const useCartStore = create((set, get) => ({
             set({
                 items: res.data.data.items,
                 totalPrice: res.data.data.totalPrice,
+                voucher: res.data.data.voucher,
+                savings: res.data.data.savings,
+                totalPriceAfterCode: res.data.data.totalPriceAfterCode,
                 loading: false
             })
         } catch (err) {
@@ -73,9 +79,9 @@ export const useCartStore = create((set, get) => ({
             const res = await api.put(`/cart/update/${slug}`, {
                 quantity,
             })
-            set({ 
-                items: res?.data?.data?.items, 
-                totalPrice: res?.data?.data?.totalPrice 
+            set({
+                items: res?.data?.data?.items,
+                totalPrice: res?.data?.data?.totalPrice
             });
             toast.success(res.data.message, {
                 id: toastId,
@@ -96,7 +102,7 @@ export const useCartStore = create((set, get) => ({
         const toastId = toast.loading('Please Wait...');
         try {
             const res = await api.delete(`/cart/remove/${slug}`)
-            set({ 
+            set({
                 items: res?.data?.data.items,
                 totalPrice: res.data.data.totalPrice
             });
@@ -106,6 +112,61 @@ export const useCartStore = create((set, get) => ({
             });
         } catch (err) {
             toast.error(err?.response?.data?.error || 'Remove failed')
+        }
+    },
+
+    // APPLY VOUCHER
+    applyVoucher: async (code) => {
+        const toastId = toast.loading('Please Wait...');
+        try {
+            const res = await api.post('/cart/apply-voucher', {
+                code,
+            })
+            set({
+                items: res?.data?.data?.items,
+                totalPrice: res?.data?.data?.totalPrice,
+                voucher: res?.data?.data?.voucher,
+                savings: res?.data?.data?.savings,
+                totalPriceAfterCode: res?.data?.data?.totalPriceAfterCode
+            });
+            console.log(res.data);
+            toast.success(res.data.message, {
+                id: toastId,
+                duration: 3000
+            });
+        } catch (err) {
+            toast.error(err?.response?.data?.message || err?.response?.data?.error || 'Apply failed',
+                {
+                    id: toastId,
+                    duration: 3000
+                }
+            )
+        }
+    },
+
+    // REMOVE VOUCHER
+    removeVoucher: async () => {
+        const toastId = toast.loading('Please Wait...');
+        try {
+            const res = await api.delete('/cart/remove-voucher')
+            set({
+                items: res?.data?.data?.items,
+                totalPrice: res?.data?.data?.totalPrice,
+                voucher: null,
+                savings: 0,
+                totalPriceAfterCode: 0
+            });
+            toast.success(res.data.message, {
+                id: toastId,
+                duration: 3000
+            });
+        } catch (err) {
+            toast.error(err?.response?.data?.error || 'Remove failed',
+                {
+                    id: toastId,
+                    duration: 3000
+                }
+            )
         }
     },
 

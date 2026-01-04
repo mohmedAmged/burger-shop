@@ -57,7 +57,7 @@ export default function AllOrders() {
 
                             <dl className="w-1/2 sm:w-1/4 md:flex-2 lg:flex-1">
                                 <dt className="text-sm text-white/50">Total</dt>
-                                <dd className="mt-1 font-semibold">{ord?.totalPrice} EGP</dd>
+                                <dd className="mt-1 font-semibold">{ord?.totalPriceAfterCode ? ord?.totalPriceAfterCode : ord?.totalPrice} EGP</dd>
                             </dl>
 
                             <dl className="w-1/2 sm:w-1/4 md:flex-2 lg:flex-1">

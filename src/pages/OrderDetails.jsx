@@ -166,10 +166,14 @@ export default function OrderDetails() {
                                         <span>Total</span>
                                         <span>{currentOrder?.totalPrice} EGP</span>
                                     </div>
+                                    <div className="flex justify-between text-white/70 mb-2">
+                                        <span>Savings</span>
+                                        <span className="text-base font-medium text-green-500">-{currentOrder?.savings || 0} EGP</span>
+                                    </div>
 
                                     <div className="flex justify-between text-lg font-modern-negra text-yellow">
                                         <span>Grand Total</span>
-                                        <span>{currentOrder?.totalPrice} EGP</span>
+                                        <span>{currentOrder?.totalPriceAfterCode ? currentOrder?.totalPriceAfterCode : currentOrder?.totalPrice} EGP</span>
                                     </div>
                                 </div>
 

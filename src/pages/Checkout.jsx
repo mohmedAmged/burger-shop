@@ -8,7 +8,7 @@ import { useNavigate } from 'react-router-dom';
 export default function Checkout() {
     const profileData = UserData ? JSON.parse(UserData).user : '';
     console.log(profileData);
-    const {getCart, totalPrice } = useCartStore();
+    const {getCart, totalPrice, savings, totalPriceAfterCode, voucher: appliedVoucher } = useCartStore();
     console.log(totalPrice);
     const navigate = useNavigate()
     const { createOrder, loading } = useOrderStore();
@@ -19,6 +19,10 @@ export default function Checkout() {
     useEffect(() => {
         getCart();
     }, [getCart])
+console.log(appliedVoucher);
+console.log(savings);
+console.log(totalPriceAfterCode);
+
 
     const handelChange = (e) =>{
         setFormData({
@@ -137,25 +141,29 @@ export default function Checkout() {
                             </div>
 
                             {/* VOUCHER */}
-                            <div className="rounded-3xl border border-yellow/20 bg-black/50 p-6">
+                            {appliedVoucher && (
+                                <div className="rounded-3xl border border-yellow/20 bg-black/50 p-6">
                                 <label className="block text-sm text-white/70 mb-2">
-                                    Voucher / Promo Code (COMING SOON)
+                                    Voucher / Promo Code
                                 </label>
                                 <div className="flex flex-wrap gap-3">
                                     <input
                                         type="text"
+                                        value={appliedVoucher?.code || ""}
                                         disabled
                                         className="flex-1 rounded-lg border border-yellow/20 bg-transparent p-2.5 text-white placeholder:text-white/40 focus:border-yellow focus:ring-yellow"
                                     />
-                                    <button
-                                        type="button"
-                                        disabled
-                                        className="rounded-lg bg-color-yellow px-5 py-2.5 text-sm font-bold text-black hover:opacity-90 w-full md:w-auto"
-                                    >
-                                        Apply
-                                    </button>
                                 </div>
+                                {appliedVoucher && (
+                                        <div className="text-sm text-green-400 mt-2">
+                                            Voucher <strong>{appliedVoucher.code}</strong> applied!
+                                            <p className="mt-2 text-sm text-green-400">
+                                                You saved <strong>{savings} EGP</strong> with this voucher!
+                                            </p>
+                                        </div>
+                                    )}
                             </div>
+                            )}
 
                         </div>
 
@@ -176,7 +184,12 @@ export default function Checkout() {
                                         <span>Shipping</span>
                                         <span>0 EGP</span>
                                     </div>
-
+                                    
+                                        <div className="flex justify-between text-white/70">
+                                            <span>Savings</span>
+                                            <span className='text-base font-medium text-green-500'>-{savings || 0} EGP</span>
+                                        </div>
+                                   
                                     <div className="flex justify-between text-white/70">
                                         <span>Tax</span>
                                         <span>0 EGP</span>
@@ -184,7 +197,7 @@ export default function Checkout() {
 
                                     <div className="flex justify-between border-t border-yellow/20 pt-3 text-lg font-modern-negra text-yellow">
                                         <span>Total</span>
-                                        <span>{totalPrice} EGP</span>
+                                        <span>{appliedVoucher ? totalPriceAfterCode : totalPrice} EGP</span>
                                     </div>
                                 </div>
 
