@@ -8,7 +8,7 @@ import { useNavigate } from 'react-router-dom';
 export default function Checkout() {
     const profileData = UserData ? JSON.parse(UserData).user : '';
     console.log(profileData);
-    const {getCart, totalPrice, savings, totalPriceAfterCode, voucher: appliedVoucher } = useCartStore();
+    const { getCart, totalPrice, savings, totalPriceAfterCode, voucher: appliedVoucher } = useCartStore();
     console.log(totalPrice);
     const navigate = useNavigate()
     const { createOrder, loading } = useOrderStore();
@@ -19,12 +19,12 @@ export default function Checkout() {
     useEffect(() => {
         getCart();
     }, [getCart])
-console.log(appliedVoucher);
-console.log(savings);
-console.log(totalPriceAfterCode);
+    console.log(appliedVoucher);
+    console.log(savings);
+    console.log(totalPriceAfterCode);
 
 
-    const handelChange = (e) =>{
+    const handelChange = (e) => {
         setFormData({
             ...formData,
             [e.target.name]: e.target.value,
@@ -49,7 +49,7 @@ console.log(totalPriceAfterCode);
                     <h2 className="text-3xl font-modern-negra text-white sm:text-4xl mb-8">
                         Checkout
                     </h2>
-                    <HeadrSteps currentStep={'checkout'}/>
+                    <HeadrSteps currentStep={'checkout'} />
                     <div className="lg:flex lg:items-start lg:gap-8 xl:gap-12">
 
                         {/* LEFT SIDE */}
@@ -114,12 +114,12 @@ console.log(totalPriceAfterCode);
                                 <div className="space-y-4">
                                     <label className="flex items-center gap-3 cursor-pointer">
                                         <input
-                                        name="paymentMethod"
-                                        value="CASH"
-                                        type="radio" 
-                                        checked={formData.paymentMethod === "CASH"}
-                                        onChange={handelChange}
-                                        className='accent-yellow focus:ring-2 focus:ring-yellow'
+                                            name="paymentMethod"
+                                            value="CASH"
+                                            type="radio"
+                                            checked={formData.paymentMethod === "CASH"}
+                                            onChange={handelChange}
+                                            className='accent-yellow focus:ring-2 focus:ring-yellow'
                                         />
                                         <span className="text-white font-modern-negra">
                                             Cash on Delivery
@@ -127,12 +127,12 @@ console.log(totalPriceAfterCode);
                                     </label>
 
                                     <label className="flex items-center gap-3 cursor-pointer opacity-50">
-                                        <input 
-                                        type="radio" 
-                                        name="paymentMethod"
-                                        value="ONLINE" 
-                                        disabled 
-                                        className='accent-yellow focus:ring-2 focus:ring-yellow'/>
+                                        <input
+                                            type="radio"
+                                            name="paymentMethod"
+                                            value="ONLINE"
+                                            disabled
+                                            className='accent-yellow focus:ring-2 focus:ring-yellow' />
                                         <span className="text-white font-modern-negra">
                                             Credit Card (Coming soon)
                                         </span>
@@ -142,27 +142,35 @@ console.log(totalPriceAfterCode);
 
                             {/* VOUCHER */}
                             {appliedVoucher && (
-                                <div className="rounded-3xl border border-yellow/20 bg-black/50 p-6">
-                                <label className="block text-sm text-white/70 mb-2">
-                                    Voucher / Promo Code
-                                </label>
-                                <div className="flex flex-wrap gap-3">
-                                    <input
-                                        type="text"
-                                        value={appliedVoucher?.code || ""}
-                                        disabled
-                                        className="flex-1 rounded-lg border border-yellow/20 bg-transparent p-2.5 text-white placeholder:text-white/40 focus:border-yellow focus:ring-yellow"
-                                    />
-                                </div>
-                                {appliedVoucher && (
-                                        <div className="text-sm text-green-400 mt-2">
-                                            Voucher <strong>{appliedVoucher.code}</strong> applied!
-                                            <p className="mt-2 text-sm text-green-400">
-                                                You saved <strong>{savings} EGP</strong> with this voucher!
-                                            </p>
+                                <div className="relative overflow-hidden rounded-3xl border-2 border-dashed border-green-500/30 bg-green-500/5 p-6 transition-colors hover:bg-green-500/10">
+                                    {/* Decorative Watermark */}
+                                    <div className="absolute -right-6 -top-6 opacity-5 rotate-12">
+                                        <svg className="w-32 h-32 text-green-400" fill="currentColor" viewBox="0 0 24 24"><path d="M11.178 19.569a.998.998 0 001.644 0l9-13A.999.999 0 0021 5H3a1.002 1.002 0 00-.822 1.569l9 13z" /></svg>
+                                    </div>
+
+                                    <div className="relative z-10">
+                                        <label className="mb-3 flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-green-400">
+                                            <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z" /></svg>
+                                            Promo Code Applied
+                                        </label>
+
+                                        <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
+                                            <div className="flex flex-1 items-center justify-between rounded-xl border border-green-500/20 bg-black/20 px-4 py-3">
+                                                <span className="font-modern-negra text-xl tracking-wider text-white">
+                                                    {appliedVoucher?.code}
+                                                </span>
+                                                <span className="rounded bg-green-500/20 px-2 py-1 text-xs font-bold text-green-400">
+                                                    SAVED {savings.toFixed(2)} EGP
+                                                </span>
+                                            </div>
                                         </div>
-                                    )}
-                            </div>
+
+                                        <p className="mt-3 flex items-center gap-2 text-sm font-medium text-green-400/80">
+                                            <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                                            Code successfully verified for this order.
+                                        </p>
+                                    </div>
+                                </div>
                             )}
 
                         </div>
@@ -177,19 +185,19 @@ console.log(totalPriceAfterCode);
                                 <div className="space-y-3">
                                     <div className="flex justify-between text-white/70">
                                         <span>Subtotal</span>
-                                        <span>{totalPrice} EGP</span>
+                                        <span>{totalPrice.toFixed(2)} EGP</span>
                                     </div>
 
                                     <div className="flex justify-between text-white/70">
                                         <span>Shipping</span>
                                         <span>0 EGP</span>
                                     </div>
-                                    
-                                        <div className="flex justify-between text-white/70">
-                                            <span>Savings</span>
-                                            <span className='text-base font-medium text-green-500'>-{savings || 0} EGP</span>
-                                        </div>
-                                   
+
+                                    <div className="flex justify-between text-white/70">
+                                        <span>Savings</span>
+                                        <span className='text-base font-medium text-green-500'>-{savings.toFixed(2) || 0} EGP</span>
+                                    </div>
+
                                     <div className="flex justify-between text-white/70">
                                         <span>Tax</span>
                                         <span>0 EGP</span>
@@ -197,7 +205,7 @@ console.log(totalPriceAfterCode);
 
                                     <div className="flex justify-between border-t border-yellow/20 pt-3 text-lg font-modern-negra text-yellow">
                                         <span>Total</span>
-                                        <span>{appliedVoucher ? totalPriceAfterCode : totalPrice} EGP</span>
+                                        <span>{appliedVoucher ? totalPriceAfterCode.toFixed(2) : totalPrice.toFixed(2)} EGP</span>
                                     </div>
                                 </div>
 

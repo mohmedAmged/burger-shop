@@ -200,7 +200,7 @@ export const useCartStore = create((set, get) => ({
                         </div>
                         <div>
                             <p className="text-white font-medium">{res.data.message}</p>
-                            <p className="text-sm text-green-400">You saved {res.data.data.savings} EGP!</p>
+                            <p className="text-sm text-green-400">You saved {res.data.data.savings.toFixed(2)} EGP!</p>
                         </div>
                     </div>
                 ),
