@@ -130,7 +130,7 @@ const Menu = () => {
 
     useEffect(() => {
         getAllProducts();
-    }, [])
+    }, [getAllProducts])
     console.log(products);
 
     const { addToCart } = useCartStore();
@@ -140,7 +140,7 @@ const Menu = () => {
     const decrement = () => setQty(q => Math.max(1, q - 1))
 
     const handleAdd = (prod) => {
-        addToCart(prod?.slug, qty)
+        addToCart(prod, qty)
     }
     return (
         <section id="menu" aria-labelledby="menu-heading">
@@ -220,45 +220,45 @@ const Menu = () => {
                                 <div className='flex justify-between gap-5 mt-10'>
                                     <div className="flex items-center gap-3">
                                         <button
-                                        onClick={decrement}
-                                        type="button" 
-                                        id="decrement-button" data-input-counter-decrement="counter-input" 
-                                        className="text-white"
+                                            onClick={decrement}
+                                            type="button"
+                                            id="decrement-button" data-input-counter-decrement="counter-input"
+                                            className="text-white"
                                         >
                                             ➖
                                         </button>
-                                        <input 
-                                        value={qty}
-                                        readOnly
-                                        type="text" 
-                                        id="counter-input" 
-                                        data-input-counter className="" placeholder=""
-                                        required 
+                                        <input
+                                            value={qty}
+                                            readOnly
+                                            type="text"
+                                            id="counter-input"
+                                            data-input-counter className="" placeholder=""
+                                            required
                                         />
 
                                         <button
-                                        onClick={increment}
-                                        type="button" 
-                                        id="increment-button" data-input-counter-increment="counter-input" 
-                                        className="">
+                                            onClick={increment}
+                                            type="button"
+                                            id="increment-button" data-input-counter-increment="counter-input"
+                                            className="">
                                             ➕
                                         </button>
                                     </div>
                                     <button onClick={
-                                        ()=>{
+                                        () => {
                                             if (Token) {
                                                 handleAdd(currentItem)
-                                            }else{
-                                                toast.error('you should login first',{
+                                            } else {
+                                                toast.error('you should login first', {
                                                     duration: 3000
                                                 })
                                                 scrollToTop();
                                                 navigate('/sign-in');
                                             }
-                                            
+
                                         }
-                                    } 
-                                    className="bg-color-yellow addToCartBtn gap-3">
+                                    }
+                                        className="bg-color-yellow addToCartBtn gap-3">
                                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6">
                                             <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 0 0-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 0 0-16.536-1.84M7.5 14.25 5.106 5.272M6 20.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Zm12.75 0a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Z" />
                                         </svg>

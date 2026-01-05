@@ -17,7 +17,14 @@ export const useAuthStore = create((set) => ({
 
             toast.success(data.message || 'Account created successfully', {
                 id: toastId,
-                duration: 1000
+                duration: 3000,
+                style: {
+                    borderRadius: '20px',
+                    background: 'rgba(0, 0, 0, 0.85)',
+                    backdropFilter: 'blur(12px)',
+                    border: '1px solid rgba(245, 195, 75, 0.1)',
+                    color: '#fff',
+                }
             })
 
             // Auto-login after signup
@@ -37,7 +44,15 @@ export const useAuthStore = create((set) => ({
         } catch (error) {
             const message =
                 error.response?.data?.error || 'Signup failed'
-            toast.error(message)
+            toast.error(message, {
+                style: {
+                    borderRadius: '20px',
+                    background: 'rgba(0, 0, 0, 0.85)',
+                    backdropFilter: 'blur(12px)',
+                    border: '1px solid rgba(245, 195, 75, 0.1)',
+                    color: '#fff',
+                }
+            })
             set({ loading: false })
             throw error
         }
@@ -71,14 +86,29 @@ export const useAuthStore = create((set) => ({
 
             toast.success('Welcome back 🍔', {
                 id: toastId,
-                duration: 1000
+                duration: 1000,
+                style: {
+                    borderRadius: '20px',
+                    background: 'rgba(0, 0, 0, 0.85)',
+                    backdropFilter: 'blur(12px)',
+                    border: '1px solid rgba(245, 195, 75, 0.1)',
+                    color: '#fff',
+                }
             })
             console.log(data);
             return data
         } catch (error) {
             const message =
                 error.response?.data?.error || 'Login failed'
-            toast.error(message)
+            toast.error(message, {
+                style: {
+                    borderRadius: '20px',
+                    background: 'rgba(0, 0, 0, 0.85)',
+                    backdropFilter: 'blur(12px)',
+                    border: '1px solid rgba(245, 195, 75, 0.1)',
+                    color: '#fff',
+                }
+            })
             set({ loading: false })
             throw error
         }
@@ -99,10 +129,25 @@ export const useAuthStore = create((set) => ({
 
             toast.success('Logged out successfully', {
                 id: toastId,
-                duration: 1000
+                duration: 1000,
+                style: {
+                    borderRadius: '20px',
+                    background: 'rgba(0, 0, 0, 0.85)',
+                    backdropFilter: 'blur(12px)',
+                    border: '1px solid rgba(245, 195, 75, 0.1)',
+                    color: '#fff',
+                }
             })
         } catch (error) {
-            toast.error(error.response?.data?.error||'Logout failed')
+            toast.error(error.response?.data?.error||'Logout failed', {
+                style: {
+                    borderRadius: '20px',
+                    background: 'rgba(0, 0, 0, 0.85)',
+                    backdropFilter: 'blur(12px)',
+                    border: '1px solid rgba(245, 195, 75, 0.1)',
+                    color: '#fff',
+                }
+            })
             throw error
         }
     },

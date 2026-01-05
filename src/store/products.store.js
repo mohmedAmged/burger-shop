@@ -24,7 +24,15 @@ export const useProductStore = create((set) => ({
             const message =
                 error.response?.data?.error || 'Failed to fetch products'
 
-            toast.error(message)
+            toast.error(message, {
+                style: {
+                    borderRadius: '20px',
+                    background: 'rgba(0, 0, 0, 0.85)',
+                    backdropFilter: 'blur(12px)',
+                    border: '1px solid rgba(245, 195, 75, 0.1)',
+                    color: '#fff',
+                }
+            })
 
             set({
                 loading: false,
