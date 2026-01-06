@@ -149,7 +149,7 @@ const Menu = () => {
             </h2>
             {loading ?
                 <div className='text-center flex-center '>
-                    <InsideLoader />
+                    <InsideLoader title="Menu" />
                 </div>
                 :
                 <>

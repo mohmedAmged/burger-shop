@@ -34,7 +34,7 @@ export default function AllOrders() {
                             {
                                 loading ?
                                     <div className='text-center flex-center '>
-                                        <InsideLoader />
+                                        <InsideLoader title="Orders"/>
                                     </div>
                                     :
 <>

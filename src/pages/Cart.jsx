@@ -60,7 +60,7 @@ export default function Cart() {
                                 {
                                     loading ?
                                         <div className='text-center flex-center '>
-                                            <InsideLoader />
+                                            <InsideLoader title="Cart" />
                                         </div>
                                         :
                                         <>
