@@ -3,10 +3,14 @@ import Cookies from 'js-cookie'
 import toast from 'react-hot-toast'
 import api from '../api/axios'
 
-export const useAuthStore = create((set) => ({
-    user: null,
-    token: Cookies.get('token') || null,
-    loading: false,
+export const useAuthStore = create((set) => {
+    const userData = Cookies.get('userData');
+    const parsedUserData = userData ? JSON.parse(userData) : null;
+
+    return {
+        user: parsedUserData?.user || null,
+        token: Cookies.get('token') || null,
+        loading: false,
 
     // SIGN UP  
     signUp: async (payload) => {
@@ -150,5 +154,6 @@ export const useAuthStore = create((set) => ({
             })
             throw error
         }
-    },
-}))
+    }
+    }
+})

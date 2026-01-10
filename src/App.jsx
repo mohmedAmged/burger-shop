@@ -19,6 +19,8 @@ import Checkout from './pages/Checkout'
 import AllOrders from './pages/AllOrders'
 import OrderDetails from './pages/OrderDetails'
 
+import Profile from './pages/Profile'
+
 gsap.registerPlugin(ScrollTrigger, SplitText)
 
 function App() {
@@ -50,6 +52,7 @@ function App() {
               <Route path='/sign-in' element={<SignIn />} />
               <Route path='/sign-up' element={<SignUp />} />
               <Route path='/cart' element={<Cart />} />
+              <Route path='/profile' element={<Profile />} />
               <Route path='/checkout' element={<Checkout />} />
               <Route path='/all-orders' element={<AllOrders />} />
               <Route path='/all-orders/:orderId' element={<OrderDetails />} />
