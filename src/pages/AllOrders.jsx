@@ -4,6 +4,7 @@ import InsideLoader from "../utils/InsideLoader";
 import { Link } from "react-router-dom";
 import { scrollToTop } from "../functions/scrollToTop";
 import HeadrSteps from "../utils/HeaderSteps";
+import { getStatusColor } from "../functions/getStatusColor";
 
 export default function AllOrders() {
     const { getUserOrders, loading, orders } = useOrderStore();
@@ -11,7 +12,7 @@ export default function AllOrders() {
         getUserOrders();
     }, [])
     console.log(orders);
-    
+
     return (
         <div className='min-h-screen py-48 2xl:px-0 radial-gradient px-5 container mx-auto'>
             <section className=" py-8 antialiased md:py-16">
@@ -62,7 +63,7 @@ export default function AllOrders() {
 
                             <dl className="w-1/2 sm:w-1/4 md:flex-2 lg:flex-1">
                                 <dt className="text-sm text-white/50">Status</dt>
-                                <dd className="mt-1 inline-flex rounded bg-yellow/10 px-3 py-1 text-xs font-medium text-yellow">
+                                <dd className={`mt-1 inline-flex rounded px-3 py-1 text-xs font-medium ${getStatusColor(ord?.status)}`}>
                                     {ord?.status}
                                 </dd>
                             </dl>

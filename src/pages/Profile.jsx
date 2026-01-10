@@ -4,6 +4,7 @@ import { useProfileStore } from '../store/profile.store'
 import { Link } from 'react-router-dom'
 import { scrollToTop } from '../functions/scrollToTop'
 import InsideLoader from '../utils/InsideLoader'
+import { getStatusColor } from '../functions/getStatusColor'
 
 const Profile = () => {
     const { user } = useAuthStore();
@@ -219,10 +220,7 @@ const Profile = () => {
                                             <div className="mt-4 md:mt-0 flex items-center justify-between md:gap-8">
                                                 <div className="text-right">
                                                     <p className="font-modern-negra text-2xl text-yellow leading-none">{order.totalPriceAfterCode || order.totalPrice} EGP</p>
-                                                    <span className={`inline-block px-3 py-1 rounded-full text-[10px] font-bold uppercase mt-1 ${order.status === 'DELIVERED' ? 'bg-green-500/20 text-green-400' :
-                                                            order.status === 'CANCELLED' ? 'bg-red-500/20 text-red-400' :
-                                                                'bg-yellow/20 text-yellow'
-                                                        }`}>
+                                                    <span className={`inline-block px-3 py-1 rounded-full text-[10px] font-bold uppercase mt-1 ${getStatusColor(order.status)}`}>
                                                         {order.status}
                                                     </span>
                                                 </div>
