@@ -155,7 +155,7 @@ const Menu = () => {
                 <>
                     {/* Category Tabs */}
                     <div className="category-tabs" aria-label="Category Filter">
-                        {categories.map((cat) => (
+                        {categories?.map((cat) => (
                             <button
                                 key={cat}
                                 onClick={() => {
